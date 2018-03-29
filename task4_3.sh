@@ -2,7 +2,7 @@
 ARGS=2
 
 #Backup settings
-bdir="/tmp/backup/"
+bdir="/tmp/backups/"
 
 
 
@@ -41,8 +41,8 @@ if [ ! -d "$bdir" ]; then
 fi
 
 #Checking bacup number and delete old ones
-#find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$2" | cut -f 2-| xargs rm -rf
-rm $(find "$bdir" -name "$bname*" 2> /dev/null | sort | head -$(($bnum - $2 + 1 )) 2> /dev/null) 2> /dev/null
+find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$2" | cut -f 2-| xargs rm -rf
+#rm $(find "$bdir" -name "$bname*" 2> /dev/null | sort | head -$(($bnum - $2 + 1 )) 2> /dev/null) 2> /dev/null
                             
 
 #Creating bacup file
