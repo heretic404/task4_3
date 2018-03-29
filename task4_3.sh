@@ -32,7 +32,7 @@ fi
 srcdir="$1"
 bnum="$2"
 bname=$(echo "$1" | sed -r 's/[/]+/-/g' | sed 's/^-//')
-filename=$bname-$(date '+%Y-%m-%d-%H%M%S').tar.gz
+filename=${bname}-$(date '+%Y-%m-%d-%H%M%S').tar.gz
 
 
 #Checking if backup dir exsists
@@ -41,10 +41,10 @@ if [ ! -d "$bdir" ]; then
 fi
 
 #Creating bacup file
-tar --create --gzip --file="$bdir$filename" '$srcdir' 2> /dev/null
+tar --create --gzip --file="$bdir$filename" '${srcdir}' 2> /dev/null
 
 #Checking bacup number and delete old ones
-rm -f $(find "$bdir" -name "$bname*" -type f -printf "%Ts\t$bdir%P\n" | sort -n | head -n -"$2" | cut -f 2- )
+rm -f $(find "$bdir" -name "${bname}*" -type f -printf "%Ts\t$bdir%P\n" | sort -n | head -n -"$2" | cut -f 2- )
                             
 
 
