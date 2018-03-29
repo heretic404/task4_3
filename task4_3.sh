@@ -41,7 +41,16 @@ if [ ! -d "$bdir" ]; then
 fi
 
 #Checking bacup number and delete old ones
-find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$bnum" | cut -f 2- | xargs rm -rf
+#find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$bnum" | cut -f 2- | xargs rm -rf
+
+for f in $(find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n')  # мы убрали конвейер,  заменив его на цикл
+    do
+        sort -n
+        head -n -"$bnum"
+        cut -f 2-
+        xargs rm -rf 
+        break
+    done
                                
 
 #Creating bacup file
