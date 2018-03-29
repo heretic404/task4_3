@@ -45,6 +45,7 @@ fi
 
 for f in $(find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n')  # мы убрали конвейер,  заменив его на цикл
     do
+        read f
         sort -n
         head -n -"$bnum"
         cut -f 2-
