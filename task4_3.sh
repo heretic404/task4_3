@@ -3,10 +3,7 @@ ARGS=2
 
 #Backup settings
 bdir="/tmp/backups/"
-srcdir="$1"
-bnum="$2"
-bname=$(echo "$1" | sed -r 's/[/]+/-/g' | sed 's/^-//')
-filename=$bname-$(date +%-Y%-m%-d)-$(date +%-T).tar.gz
+
 
 
 #Arguments check stage
@@ -29,10 +26,20 @@ if ! [[ $2 =~ $re ]] ; then
    exit 2
 fi
 
-#
+#Bacup stage
+
+#Archive settings
+srcdir="$1"
+bnum="$2"
+bname=$(echo "$1" | sed -r 's/[/]+/-/g' | sed 's/^-//')
+filename=$bname-$(date +%-Y%-m%-d)-$(date +%-T).tar.gz
+
+#Checking if backup dir exsists
 if [ ! -d "$bdir" ]; then
   mkdir "$bdir"
 fi
+
+#
 tar --create --gzip --file=$bdir$filename $srcdir
 
 
