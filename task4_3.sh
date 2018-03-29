@@ -2,7 +2,7 @@
 ARGS=2
 
 #Backup settings
-bdir="/tmp/backups/"
+bdir="/tmp/backups"
 
 
 
