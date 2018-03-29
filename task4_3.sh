@@ -41,9 +41,9 @@ if [ ! -d "$bdir" ]; then
 fi
 
 #Checking bacup number and delete old ones
-rm -f $(find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$2" | cut -f 2-) #| xargs rm -rf
-
-                               
+#find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$2" | cut -f 2-| xargs rm -rf
+#rm $(find "$bdir" -name "$bname*" 2> /dev/null | sort | head -$(($bnum - $2 + 1 )) 2> /dev/null) 2> /dev/null
+find /tmp/backup/ -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$2" | cut -f 2-| xargs rm -rf                              
 
 #Creating bacup file
 tar --create --gzip --file=$bdir$filename $srcdir
