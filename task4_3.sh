@@ -27,19 +27,17 @@ if ! [[ $2 =~ $re ]] ; then
 fi
 
 #Bacup stage
+#Checking if backup dir exsists
+if [ ! -d "$bdir" ]; then
+  mkdir "$bdir"
+  exit 0
+fi
 
 #Archive settings
 srcdir="${1}"
 bnum="$2"
 bname=$(echo "$1" | sed -r 's/[/]+/-/g' | sed 's/^-//')
 filename=${bname}-$(date '+%Y-%m-%d-%H%M%S').tar.gz
-
-
-#Checking if backup dir exsists
-if [ ! -d "$bdir" ]; then
-  mkdir "$bdir"
-  exit 0
-fi
 
 #Creating bacup file
 tar --create --gzip --file="$bdir$filename" "${srcdir}" 2> /dev/null
