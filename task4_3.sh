@@ -41,7 +41,7 @@ if [ ! -d "$bdir" ]; then
 fi
 
 #Checking bacup number and delete old ones
-rm $(find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$2" | cut -f 2-) #| xargs rm -rf
+rm -f $(find "$bdir" -name "$bname*" -type f -printf '%Ts\t%P\n' | sort -n | head -n -"$2" | cut -f 2-) #| xargs rm -rf
 
                                
 
