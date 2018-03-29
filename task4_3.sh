@@ -3,7 +3,10 @@ ARGS=2
 
 #Backup settings
 bdir="/tmp/backups/"
-
+#Checking if backup dir exsists
+if [ ! -d "${bdir}" ]; then
+  mkdir "${bdir}"
+fi
 
 
 #Arguments check stage
@@ -27,11 +30,7 @@ if ! [[ $2 =~ $re ]] ; then
 fi
 
 #Bacup stage
-#Checking if backup dir exsists
-if [ ! -d "$bdir" ]; then
-  mkdir "$bdir"
-  exit 0
-fi
+
 
 #Archive settings
 srcdir="${1}"
