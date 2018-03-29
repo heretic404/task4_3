@@ -35,7 +35,7 @@ fi
 #Archive settings
 srcdir="${1}"
 bnum="$2"
-bname=$(echo "${1}" | sed -r 's/[/]+/-/g' | sed 's/^-//' | sed -e "s/ /_/g")
+bname=$(echo "${1}" | sed -r 's/[/]+/-/g' | sed 's/^-//' | sed -e 's/ /_/g')
 filename=${bname}-$(date '+%Y-%m-%d-%H%M%S').tar.gz
 
 #Creating bacup file
