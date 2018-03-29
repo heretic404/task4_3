@@ -5,7 +5,7 @@ ARGS=2
 #Arguments check stage
 
 #Check number of arguments passed
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 2 ]; then
     echo "error: Illegal number of parameters" >&2;
     exit 1
 fi
