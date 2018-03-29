@@ -32,7 +32,8 @@ fi
 srcdir="$1"
 bnum="$2"
 bname=$(echo "$1" | sed -r 's/[/]+/-/g' | sed 's/^-//')
-filename=$bname-$(date +%-Y%-m%-d)-$(date +%-T).tar.gz
+filename=$bname-$(date '+%Y-%m-%d-%H%M%S').tar.gz
+
 
 #Checking if backup dir exsists
 if [ ! -d "$bdir" ]; then
