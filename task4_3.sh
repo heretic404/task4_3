@@ -41,7 +41,7 @@ if [ ! -d "$bdir" ]; then
 fi
 
 #Creating bacup file
-tar --create --gzip --file=$bdir$filename $srcdir > /dev/null
+tar --create --gzip --file=$bdir$filename $srcdir 2> /dev/null
 
 #Checking bacup number and delete old ones
 rm -f $(find "$bdir" -name "$bname*" -type f -printf "%Ts\t$bdir%P\n" | sort -n | head -n -"$2" | cut -f 2- )
