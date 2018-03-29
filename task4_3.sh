@@ -6,7 +6,7 @@ bdir="/tmp/backups/"
 srcdir="$1"
 bnum="$2"
 bname=$(echo "$1" | sed -r 's/^.//[/]+/-/g')
-filename="$bname"-$(date +%-Y%-m%-d)-$(date +%-T).tar.gz
+filename=$bname-$(date +%-Y%-m%-d)-$(date +%-T).tar.gz
 
 
 #Arguments check stage
@@ -37,5 +37,5 @@ tar --create --gzip --file=$bdir$filename $srcdir
 
 
 echo "$1"
-echo "$2"
+echo "$bname"
 echo "$bdir"
