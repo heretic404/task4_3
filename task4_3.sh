@@ -48,7 +48,7 @@ tar --create --gzip --file="$bdir$filename" "${srcdir}" 2> /dev/null
 rm -f $"(find "$bdir" -name "${bname}*" -type f -printf "%Ts\t$bdir%P\n" | sort -n | head -n -"$2" | cut -f 2- )"
 
 
-echo "$bname"
+echo "${bname}"
 exit 0
                             
 
