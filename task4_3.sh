@@ -5,7 +5,7 @@ ARGS=2
 bdir="/tmp/backups/"
 srcdir="$1"
 bnum="$2"
-bname=$(echo "$1" | sed -r 's/[/]+/-/g')
+bname=$(echo "$1" | sed -r 's/[/]+/-/g' | sed 's/^-//')
 filename=$bname-$(date +%-Y%-m%-d)-$(date +%-T).tar.gz
 
 
