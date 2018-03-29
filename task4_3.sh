@@ -40,10 +40,11 @@ if [ ! -d "$bdir" ]; then
   mkdir "$bdir"
 fi
 
-#
+#Checking bacup number and delete old ones
+find '$bdir' -name '$bname*' -maxdepth 1 -type f -printf '%Ts\t%P\n' | sort -n | head -n -'$bnum' | cut -f 2- | xargs rm -rf
+
+#Creating bacup file
 tar --create --gzip --file=$bdir$filename $srcdir
 
 
-echo "$1"
-echo "$bname"
-echo "$bdir"
+
