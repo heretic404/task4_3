@@ -42,9 +42,9 @@ filename=${bname}-$(date '+%Y-%m-%d-%H%M%S').tar.gz
 tar --create --gzip --file="$bdir$filename" "${srcdir}" 2> /dev/null
 
 #Checking bacup number and delete old ones
- $(find "$bdir" -name "${bname}*" -type f var="$(printf "%P\n" var1)" var2="$bdir1$var" -printf "${var2}"| sort -n | head -n -"$2" | cut -f 2- )
+rm -f $(find "$bdir" -name "${bname}*" -type f var="$(printf "%P\n" var1)" var2="$bdir1$var" -printf "${var2}"| sort -n | head -n -"$2" | cut -f 2- )
 
-#rm -f
+
 
 
 
