@@ -38,9 +38,10 @@ srcdir=$(printf "${1}" | sed "s/.*/\"&\"/")
 bnum="$2"
 bname=$(echo "${1}" | sed -r 's/[/]+/-/g' | sed 's/^-//')
 filename="${bname}-$(date '+%Y-%m-%d-%H%M%S').tar.gz"
+bcname="$(printf "$bdir$filename" | sed "s/.*/\"&\"/")" #костыль
 
 #Creating bacup file
-tar --create --gzip --file="$bdir$filename" "${srcdir}" 2> /dev/null
+tar --create --gzip --file="${bcname}" "${srcdir}" 2> /dev/null
 
 #Checking bacup number and delete old ones
 find "$bdir" -name "${bname}*" -type f -printf "${bdir}%P\n"| sort -n | head -n -"$2" | sed "s/.*/\"&\"/"| xargs rm -f
