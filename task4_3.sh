@@ -34,7 +34,7 @@ fi
 
 #Archive settings
 #srcdir="${1}"
-srcdir=(printf "${1}" | sed "s/.*/\"&\"/")
+srcdir=$(printf "${1}" | sed "s/.*/\"&\"/")
 bnum="$2"
 bname=$(echo "${1}" | sed -r 's/[/]+/-/g' | sed 's/^-//')
 filename=${bname}-$(date '+%Y-%m-%d-%H%M%S').tar.gz
