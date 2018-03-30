@@ -37,7 +37,7 @@ fi
 srcdir=$(printf "${1}" | sed "s/.*/\"&\"/")
 bnum="$2"
 bname=$(echo "${1}" | sed -r 's/[/]+/-/g' | sed 's/^-//')
-filename=${bname}-$(date '+%Y-%m-%d-%H%M%S').tar.gz
+filename="${bname}-$(date '+%Y-%m-%d-%H%M%S').tar.gz"
 
 #Creating bacup file
 tar --create --gzip --file="$bdir$filename" "${srcdir}" 2> /dev/null
