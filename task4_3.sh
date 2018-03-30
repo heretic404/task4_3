@@ -45,5 +45,3 @@ tar --create --gzip --file="$bdir$filename" "${srcdir}" 2> /dev/null
 find "$bdir" -name "${bname}*" -type f -printf "${bdir}%P\n"| sort -n | head -n -"$2" | sed "s/.*/\"&\"/"| xargs rm -f
 
 exit 0
-
-
