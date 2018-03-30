@@ -14,7 +14,6 @@ fi
 #Check number of arguments passed
 if [ "$#" -ne 2 ]; then
     echo "error: Illegal number of parameters" >&2;
-    echo "You need to specify a path to the folder which you want to backup and number of backups" >&2; 
     exit 1
 fi
 #Checing if first argument is a directory
